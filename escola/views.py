@@ -4,7 +4,8 @@ from escola.models import Aluno, Curso, Matricula
 from escola.serializer import AlunoSerializer, AlunoSerializerV2, CursoSerializer, MatriculaSerializer, \
     ListaMatriculasAlunoSerializer, ListaAlunosMatriculadosSerializer
 from rest_framework.response import Response
-
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 
 class AlunosViewSet(viewsets.ModelViewSet):
     queryset = Aluno.objects.all()
@@ -53,7 +54,10 @@ class MatriculaViewSet(viewsets.ModelViewSet):
             id = str(serializer.data['id'])
             response['Location'] = request.build_absolute_uri() + id
             return response
-
+    
+    @method_decorator(cache_page(30))
+    def dispatch(self, *args, **kwargs):
+        return super(MatriculaViewSet, self).dispatch(*args, **kwargs)
 
 class ListaMatriculasAluno(generics.ListAPIView):
     """Listando as matrículas de um aluno ou aluna"""
