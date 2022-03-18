@@ -1,4 +1,6 @@
 from urllib import response
+
+from django import http
 from rest_framework import viewsets, generics, status
 from escola.models import Aluno, Curso, Matricula
 from escola.serializer import AlunoSerializer, AlunoSerializerV2, CursoSerializer, MatriculaSerializer, \
@@ -31,6 +33,7 @@ class AlunosViewSet(viewsets.ModelViewSet):
 class CursosViewSet(viewsets.ModelViewSet):
     queryset = Curso.objects.all()
     serializer_class = CursoSerializer
+    http_method_names = ['get', 'post', 'put', 'path']
 
     def create(self, request, **kwargs):
         serializer = self.serializer_class(data=request.data)
