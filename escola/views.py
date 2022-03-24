@@ -11,8 +11,8 @@ from django.views.decorators.cache import cache_page
 
 class AlunosViewSet(viewsets.ModelViewSet):
     queryset = Aluno.objects.all()
-
     serializer_class = AlunoSerializer
+    http_method_names = ['get', 'post', 'put', 'path']
 
 
     def get_serializer_class(self):
