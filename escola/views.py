@@ -48,8 +48,9 @@ class CursosViewSet(viewsets.ModelViewSet):
 class MatriculaViewSet(viewsets.ModelViewSet):
     queryset = Matricula.objects.all()
     serializer_class = MatriculaSerializer
+    http_method_names = ['get', 'post', 'put', 'path']
 
-    def create(self, request, **kwargs):
+    def create(self, request, **kwargs,):
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             serializer.save()
