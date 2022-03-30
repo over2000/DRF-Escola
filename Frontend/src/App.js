@@ -1,10 +1,11 @@
-import ListaCursos from "./components/listaCursos";
+import React from "react";
+import Router from "./Routes";
 
 function App() {
   return (
-    
-    <ListaCursos/>
 
+    <Router />
+  
   );
 }
 
