@@ -1,4 +1,5 @@
-import ListaCursos from './components/listaCursos';
+import ListaCursos from "./components/listaCursos";
+
 function App() {
   return (
     
