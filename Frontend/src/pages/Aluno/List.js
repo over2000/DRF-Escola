@@ -1,4 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { DataGrid } from '@mui/x-data-grid';
+
+const columns = [
+    { field: 'id', headerName: 'ID' },
+    { field: 'nome', headerName: 'Nome', width: 250 },
+    { field: 'rg', headerName: 'RG', width: 150 },
+    { field: 'cpf', headerName: 'CPF', width: 150 },
+    { field: 'data_nascimento', headerName: 'Nascimento', width: 100 }
+  ]
 
 
 function ListAlunos() {
@@ -13,12 +22,15 @@ function ListAlunos() {
     }, []);
 
 return (
-    <ul>
-        {alunos.map(aluno => (
-            <li key={aluno.id}> {aluno.nome} </li>
-        ))}
-        
-    </ul>
+
+    <div style={{ height: 600, width: '100%' }}>
+      <DataGrid
+        rows={alunos}
+        columns={columns}
+        pageSize={20}
+        checkboxSelection
+      />
+    </div>
 );
 
 }

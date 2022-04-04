@@ -21,7 +21,7 @@ function ListCursos() {
 
 return (
 
-    <div style={{ height: 400, width: '40%' }}>
+    <div style={{ height: 400, width: '100%' }}>
       <DataGrid
         rows={cursos}
         columns={columns}
