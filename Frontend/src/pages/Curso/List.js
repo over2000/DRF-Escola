@@ -112,6 +112,7 @@ function ListCursos() {
   }
 
   const handleRowAdd = (newData, resolve) => {
+    window.location = "/curso/list"
     //validation
     let errorList = []
     if(newData.codigo_curso === undefined){
