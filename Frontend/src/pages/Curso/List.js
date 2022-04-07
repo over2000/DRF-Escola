@@ -183,7 +183,7 @@ function ListCursos() {
             }       
           </div>
             <MaterialTable
-              title="User data from remote source"
+              title="Lista de Cursos"
               columns={columns}
               data={data}
               icons={tableIcons}
